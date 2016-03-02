@@ -11,6 +11,8 @@ import (
 func RequestTimer() echo.MiddlewareFunc {
 	return func(h echo.HandlerFunc) echo.HandlerFunc {
 		return func(c *echo.Context) error {
+			logger := echoutils.RequestLogger(c)
+
 			start := time.Now()
 
 			if err := h(c); err != nil {
@@ -22,7 +24,7 @@ func RequestTimer() echo.MiddlewareFunc {
 			req := c.Request()
 			resp := c.Response()
 
-			echoutils.RequestLogger(c).Infof("[%d] %s %s | %s | %d", resp.Status(), req.Method, req.URL.String(), stop.Sub(start), resp.Size())
+			logger.Infof("[%d] %s %s | %s | %d", resp.Status(), req.Method, req.URL.String(), stop.Sub(start), resp.Size())
 			return nil
 		}
 	}

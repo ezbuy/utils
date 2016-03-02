@@ -23,7 +23,7 @@ func JSONRecover() echo.Middleware {
 
 					echoutils.RequestLogger(c).Errorf("PANIC: %s", err)
 					debug.PrintStack()
-					c.JSON(http.StatusInternalServerError, echoutils.InternalError)
+					c.JSON(http.StatusInternalServerError, echoutils.InternalErrorMessage)
 					return
 				}
 			}()
