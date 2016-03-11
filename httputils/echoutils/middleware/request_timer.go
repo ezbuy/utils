@@ -3,7 +3,7 @@ package middleware
 import (
 	"time"
 
-	"github.com/labstack/echo"
+	"gopkg.in/labstack/echo.v1"
 
 	"github.com/ezbuy/utils/httputils/echoutils"
 )
