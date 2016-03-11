@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/labstack/echo"
+	"gopkg.in/labstack/echo.v1"
 
 	"github.com/ezbuy/utils/httputils/echoutils"
 	"github.com/ezbuy/utils/httputils/echoutils/middleware"

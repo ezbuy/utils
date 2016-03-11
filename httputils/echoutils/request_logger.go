@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/apex/log"
-	"github.com/labstack/echo"
+	"gopkg.in/labstack/echo.v1"
 )
 
 const (
