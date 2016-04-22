@@ -10,6 +10,10 @@ import (
 func CORS(origins []string) func(*echo.Context) error {
 	return func(c *echo.Context) error {
 		origin := c.Request().Header.Get("Origin")
+		// 跨域为浏览器行为, 认为浏览器一定会带 Origin 头, 其余情况为客户端请求
+		if origin == "" {
+			return nil
+		}
 
 		allowed := false
 		for _, one := range origins {
