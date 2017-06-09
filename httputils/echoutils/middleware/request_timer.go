@@ -24,7 +24,8 @@ func RequestTimer() echo.MiddlewareFunc {
 			req := c.Request()
 			resp := c.Response()
 
-			logger.Infof("[%d] %s %s | %s | %d", resp.Status(), req.Method, req.URL.String(), stop.Sub(start), resp.Size())
+			logger.Infof("[%d] %s %s | %s | %d | %s | %s |",
+				resp.Status(), req.Method, req.URL.String(), stop.Sub(start), resp.Size(), stop.Format("2006/01/02 15:04:05"), req.UserAgent())
 			return nil
 		}
 	}
