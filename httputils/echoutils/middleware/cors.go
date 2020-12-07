@@ -30,7 +30,7 @@ func CORS(origins []string) func(*echo.Context) error {
 		resp := c.Response()
 		resp.Header().Set("Access-Control-Allow-Origin", origin)
 		resp.Header().Set("Access-Control-Allow-Credentials", "true")
-		resp.Header().Set("Access-Control-Allow-Headers", "Content-Type,Ajax")
+		resp.Header().Set("Access-Control-Allow-Headers", "Content-Type,Ajax,sentry-trace")
 
 		if c.Request().Method == "OPTIONS" {
 			return echo.NewHTTPError(http.StatusOK, "ok")
